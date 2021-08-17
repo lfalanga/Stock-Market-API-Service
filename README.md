@@ -23,7 +23,8 @@ Body:
 {
     "email": "new@new.com",
     "password": "123456"
-}```
+}
+```
 #### Example Response:
 Body:
 ```JSON
@@ -33,7 +34,8 @@ Body:
     "loggedIn": true,
     "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjM2NGU4NTQ1NzI5OWQ5NzIxYjczNDQyZGNiNTQ3Y2U2ZDk4NGRmNTkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc3RvY2stbWFya2V0LWFwaS1zZXJ2aWNlIiwiYXVkIjoic3RvY2stbWFya2V0LWFwaS1zZXJ2aWNlIiwiYXV0aF90aW1lIjoxNjI5MTY5NjQwLCJ1c2VyX2lkIjoiY1RmUE1INDV3SVlKcUxMWnBNdHhOVWxpRm1YMiIsInN1YiI6ImNUZlBNSDQ1d0lZSnFMTFpwTXR4TlVsaUZtWDIiLCJpYXQiOjE2MjkxNjk2NDAsImV4cCI6MTYyOTE3MzI0MCwiZW1haWwiOiJuZXc1QG5ldzUuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbIm5ldzVAbmV3NS5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.Ym2KDfe9By_HMvoXIsyrbJ_I3A9peNXOVvh-QJXFOWGDtzNYYPpNstShFmWYnSTpP1r3nnXXo23EH1FIu-wMeMFYrG1BfrKQYPdDsdLXzCCOZKl_Mu5ApWLWXEwoP9Mo-PmTzM7CHQ6A4UkPIE06VguKPBsryT2K-BGjyNHxXkZmcdIdeCzWidU6Rgn0WPABaIj7e5xINQOtmPWU2VPpBlSVe9V0RIaem8oa5J918O65yYTzBe03c_sMVBcc8j9Ef9IyDVLacy3BqKnSjOqMaeRQpB78IEvHQOy-Yxce56PeD8QzLiN8uG3Lu2ygg8IS5-cb4bykw_Zh8CDv-fNVmw",
     "userId": "cTfPMH45wIYJqLLZpMtxNUliFmX2"
-}```
+}
+```
 #### Notes:
 You get necessary information for doing requests at "/smi" (see below).
 The three main variables needed are "userId", "apikey" and "token". The "apikey" variable renews itself every time you log in into the application for security reasons. Keep this in mind when testing the application because token expires too after one hour.
@@ -50,7 +52,8 @@ Body:
     "lastName": "new",
     "email": "new6@new6.com",
     "password": "123456"
-}```
+}
+```
 #### Example Response:
 Body:
 ```JSON
@@ -60,7 +63,8 @@ Body:
     "lastName": "new6",
     "message": "User created succesfully.",
     "name": "new6"
-}```
+}
+```
 #### Notes:
 I didn't find necessary to expose any other information after logging in.
 
@@ -71,10 +75,11 @@ Once you run the application, a FERNET_KEY variable is aggregated to the .env fi
 #### Example Request:
 POST http://localhost:5000/smi?symbol=AAPL
 Header:
-```Python
+```PYTHON
 userId = cTfPMH45wIYJqLLZpMtxNUliFmX2
 apikey = gAAAAABhGyfo19Tdf5H2SqnsyF3XPRH1sf3ZaBnZ2srolXeWw25lvdjQPOtAU99SG6fQmECZmLjHMM7YhSJ6sWiEtHXpBcPtBozKa80MUs0WTm-HXtrIVRo=
-token = eyJhbGciOiJSUzI1NiIsImtpZCI6IjM2NGU4NTQ1NzI5OWQ5NzIxYjczNDQyZGNiNTQ3Y2U2ZDk4NGRmNTkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc3RvY2stbWFya2V0LWFwaS1zZXJ2aWNlIiwiYXVkIjoic3RvY2stbWFya2V0LWFwaS1zZXJ2aWNlIiwiYXV0aF90aW1lIjoxNjI5MTY5NjQwLCJ1c2VyX2lkIjoiY1RmUE1INDV3SVlKcUxMWnBNdHhOVWxpRm1YMiIsInN1YiI6ImNUZlBNSDQ1d0lZSnFMTFpwTXR4TlVsaUZtWDIiLCJpYXQiOjE2MjkxNjk2NDAsImV4cCI6MTYyOTE3MzI0MCwiZW1haWwiOiJuZXc1QG5ldzUuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbIm5ldzVAbmV3NS5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.Ym2KDfe9By_HMvoXIsyrbJ_I3A9peNXOVvh-QJXFOWGDtzNYYPpNstShFmWYnSTpP1r3nnXXo23EH1FIu-wMeMFYrG1BfrKQYPdDsdLXzCCOZKl_Mu5ApWLWXEwoP9Mo-PmTzM7CHQ6A4UkPIE06VguKPBsryT2K-BGjyNHxXkZmcdIdeCzWidU6Rgn0WPABaIj7e5xINQOtmPWU2VPpBlSVe9V0RIaem8oa5J918O65yYTzBe03c_sMVBcc8j9Ef9IyDVLacy3BqKnSjOqMaeRQpB78IEvHQOy-Yxce56PeD8QzLiN8uG3Lu2ygg8IS5-cb4bykw_Zh8CDv-fNVmw```
+token = eyJhbGciOiJSUzI1NiIsImtpZCI6IjM2NGU4NTQ1NzI5OWQ5NzIxYjczNDQyZGNiNTQ3Y2U2ZDk4NGRmNTkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc3RvY2stbWFya2V0LWFwaS1zZXJ2aWNlIiwiYXVkIjoic3RvY2stbWFya2V0LWFwaS1zZXJ2aWNlIiwiYXV0aF90aW1lIjoxNjI5MTY5NjQwLCJ1c2VyX2lkIjoiY1RmUE1INDV3SVlKcUxMWnBNdHhOVWxpRm1YMiIsInN1YiI6ImNUZlBNSDQ1d0lZSnFMTFpwTXR4TlVsaUZtWDIiLCJpYXQiOjE2MjkxNjk2NDAsImV4cCI6MTYyOTE3MzI0MCwiZW1haWwiOiJuZXc1QG5ldzUuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbIm5ldzVAbmV3NS5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.Ym2KDfe9By_HMvoXIsyrbJ_I3A9peNXOVvh-QJXFOWGDtzNYYPpNstShFmWYnSTpP1r3nnXXo23EH1FIu-wMeMFYrG1BfrKQYPdDsdLXzCCOZKl_Mu5ApWLWXEwoP9Mo-PmTzM7CHQ6A4UkPIE06VguKPBsryT2K-BGjyNHxXkZmcdIdeCzWidU6Rgn0WPABaIj7e5xINQOtmPWU2VPpBlSVe9V0RIaem8oa5J918O65yYTzBe03c_sMVBcc8j9Ef9IyDVLacy3BqKnSjOqMaeRQpB78IEvHQOy-Yxce56PeD8QzLiN8uG3Lu2ygg8IS5-cb4bykw_Zh8CDv-fNVmw
+```
 #### Example Response:
 Body:
 ```JSON
@@ -108,7 +113,8 @@ Body:
         "open": 148.535,
         "variation": 2.02
     }
-}```
+}
+```
 #### Notes:
 Remember to take note about those three variables (apikey, userId, token), before testing this endpoint. Note that the "symbol" is allocated in the query string, because I believe that makes the URI more readable, and let the header data for security purposes only.
 
@@ -142,7 +148,8 @@ Body:
         "symbol": "AAPL",
         "timestamp": 1629169731570
     }
-}```
+}
+```
 #### Notes:
 As you can see is just a simple log information that could be improved, saving the information getted at the request time, for example.
 
@@ -167,7 +174,8 @@ Body:
     "message": "The request method is not supported by the server and cannot be handled.",
     "status": 501,
     "sub_code": 3
-}```
+}
+```
 Look at the variable "sub_code" when testing the application, and you will notice that is not always the same for different errors. This was just a matter of time.
 
 ## Data Validation

@@ -34,7 +34,7 @@ Body:
 }
 #### Notes:
 You get necessary information for doing requests at "/smi" (see below).
-The three main variables needed are "userId", "apikey" and "token". The "apikey" variable renews itself every time you log in into the application for security reasons. Keep these in mind when testing the application because token expires too after on hour.
+The three main variables needed are "userId", "apikey" and "token". The "apikey" variable renews itself every time you log in into the application for security reasons. Keep this in mind when testing the application because token expires too after on hour.
 The posted JSON object should be included in the body of the request as JSON format.
 
 ### @myapi.post("/signup")

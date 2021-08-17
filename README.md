@@ -119,7 +119,7 @@ Body:
 Remember to take note about those three variables (apikey, userId, token), before testing this endpoint. Note that the "symbol" is allocated in the query string, because I believe that makes the URI more readable, and let the header data for security purposes only.
 
 ### @myapi.post("/log")
-Since the alpha tester don't have access to the Firebase Real Time Database, I've created another endpoint for consulting log entries. As you can see below is a simple GET request giving the tester the possibility of reading the saved data after each user request.
+Since the beta tester don't have access to the Firebase Real Time Database, I've created another endpoint for consulting log entries. As you can see below is a simple GET request giving the tester the possibility of reading the saved data after each user request.
 I didn't invest to much time with the access rules for this database in search of achieving the API throttling issue and other issues.
 #### Example Request:
 GET http://localhost:5000/log?userId=cTfPMH45wIYJqLLZpMtxNUliFmX2

@@ -19,7 +19,7 @@ This is a POST endpoint for logging in into the application.
 #### Example Request:
 POST http://localhost:5000/login
 Body:
-{
+`{
     "email": "new@new.com",
     "password": "123456"
 }
@@ -31,7 +31,7 @@ Body:
     "loggedIn": true,
     "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjM2NGU4NTQ1NzI5OWQ5NzIxYjczNDQyZGNiNTQ3Y2U2ZDk4NGRmNTkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc3RvY2stbWFya2V0LWFwaS1zZXJ2aWNlIiwiYXVkIjoic3RvY2stbWFya2V0LWFwaS1zZXJ2aWNlIiwiYXV0aF90aW1lIjoxNjI5MTY5NjQwLCJ1c2VyX2lkIjoiY1RmUE1INDV3SVlKcUxMWnBNdHhOVWxpRm1YMiIsInN1YiI6ImNUZlBNSDQ1d0lZSnFMTFpwTXR4TlVsaUZtWDIiLCJpYXQiOjE2MjkxNjk2NDAsImV4cCI6MTYyOTE3MzI0MCwiZW1haWwiOiJuZXc1QG5ldzUuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbIm5ldzVAbmV3NS5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.Ym2KDfe9By_HMvoXIsyrbJ_I3A9peNXOVvh-QJXFOWGDtzNYYPpNstShFmWYnSTpP1r3nnXXo23EH1FIu-wMeMFYrG1BfrKQYPdDsdLXzCCOZKl_Mu5ApWLWXEwoP9Mo-PmTzM7CHQ6A4UkPIE06VguKPBsryT2K-BGjyNHxXkZmcdIdeCzWidU6Rgn0WPABaIj7e5xINQOtmPWU2VPpBlSVe9V0RIaem8oa5J918O65yYTzBe03c_sMVBcc8j9Ef9IyDVLacy3BqKnSjOqMaeRQpB78IEvHQOy-Yxce56PeD8QzLiN8uG3Lu2ygg8IS5-cb4bykw_Zh8CDv-fNVmw",
     "userId": "cTfPMH45wIYJqLLZpMtxNUliFmX2"
-}
+}`
 #### Notes:
 You get necessary information for doing requests at "/smi" (see below).
 The three main variables needed are "userId", "apikey" and "token". The "apikey" variable renews itself every time you log in into the application for security reasons. Keep this in mind when testing the application because token expires too after one hour.
@@ -41,22 +41,22 @@ The posted JSON object should be included in the body of the request as JSON for
 This is another POST endpoint for signing up into the application.
 #### Example Request:
 POST http://localhost:5000/signup
-Body:
+`Body:
 {
     "name": "new",
     "lastName": "new",
     "email": "new6@new6.com",
     "password": "123456"
-}
+}`
 #### Example Response:
 Body:
-{
+`{
     "createdUser": true,
     "email": "new6@new6.com",
     "lastName": "new6",
     "message": "User created succesfully.",
     "name": "new6"
-}
+}`
 #### Notes:
 I didn't find necessary to expose any other information after logging in.
 
@@ -67,12 +67,12 @@ Once you run the application, a FERNET_KEY variable is aggregated to the .env fi
 #### Example Request:
 POST http://localhost:5000/smi?symbol=AAPL
 Header:
-userId = cTfPMH45wIYJqLLZpMtxNUliFmX2
+`userId = cTfPMH45wIYJqLLZpMtxNUliFmX2
 apikey = gAAAAABhGyfo19Tdf5H2SqnsyF3XPRH1sf3ZaBnZ2srolXeWw25lvdjQPOtAU99SG6fQmECZmLjHMM7YhSJ6sWiEtHXpBcPtBozKa80MUs0WTm-HXtrIVRo=
-token = eyJhbGciOiJSUzI1NiIsImtpZCI6IjM2NGU4NTQ1NzI5OWQ5NzIxYjczNDQyZGNiNTQ3Y2U2ZDk4NGRmNTkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc3RvY2stbWFya2V0LWFwaS1zZXJ2aWNlIiwiYXVkIjoic3RvY2stbWFya2V0LWFwaS1zZXJ2aWNlIiwiYXV0aF90aW1lIjoxNjI5MTY5NjQwLCJ1c2VyX2lkIjoiY1RmUE1INDV3SVlKcUxMWnBNdHhOVWxpRm1YMiIsInN1YiI6ImNUZlBNSDQ1d0lZSnFMTFpwTXR4TlVsaUZtWDIiLCJpYXQiOjE2MjkxNjk2NDAsImV4cCI6MTYyOTE3MzI0MCwiZW1haWwiOiJuZXc1QG5ldzUuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbIm5ldzVAbmV3NS5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.Ym2KDfe9By_HMvoXIsyrbJ_I3A9peNXOVvh-QJXFOWGDtzNYYPpNstShFmWYnSTpP1r3nnXXo23EH1FIu-wMeMFYrG1BfrKQYPdDsdLXzCCOZKl_Mu5ApWLWXEwoP9Mo-PmTzM7CHQ6A4UkPIE06VguKPBsryT2K-BGjyNHxXkZmcdIdeCzWidU6Rgn0WPABaIj7e5xINQOtmPWU2VPpBlSVe9V0RIaem8oa5J918O65yYTzBe03c_sMVBcc8j9Ef9IyDVLacy3BqKnSjOqMaeRQpB78IEvHQOy-Yxce56PeD8QzLiN8uG3Lu2ygg8IS5-cb4bykw_Zh8CDv-fNVmw
+token = eyJhbGciOiJSUzI1NiIsImtpZCI6IjM2NGU4NTQ1NzI5OWQ5NzIxYjczNDQyZGNiNTQ3Y2U2ZDk4NGRmNTkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc3RvY2stbWFya2V0LWFwaS1zZXJ2aWNlIiwiYXVkIjoic3RvY2stbWFya2V0LWFwaS1zZXJ2aWNlIiwiYXV0aF90aW1lIjoxNjI5MTY5NjQwLCJ1c2VyX2lkIjoiY1RmUE1INDV3SVlKcUxMWnBNdHhOVWxpRm1YMiIsInN1YiI6ImNUZlBNSDQ1d0lZSnFMTFpwTXR4TlVsaUZtWDIiLCJpYXQiOjE2MjkxNjk2NDAsImV4cCI6MTYyOTE3MzI0MCwiZW1haWwiOiJuZXc1QG5ldzUuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbIm5ldzVAbmV3NS5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.Ym2KDfe9By_HMvoXIsyrbJ_I3A9peNXOVvh-QJXFOWGDtzNYYPpNstShFmWYnSTpP1r3nnXXo23EH1FIu-wMeMFYrG1BfrKQYPdDsdLXzCCOZKl_Mu5ApWLWXEwoP9Mo-PmTzM7CHQ6A4UkPIE06VguKPBsryT2K-BGjyNHxXkZmcdIdeCzWidU6Rgn0WPABaIj7e5xINQOtmPWU2VPpBlSVe9V0RIaem8oa5J918O65yYTzBe03c_sMVBcc8j9Ef9IyDVLacy3BqKnSjOqMaeRQpB78IEvHQOy-Yxce56PeD8QzLiN8uG3Lu2ygg8IS5-cb4bykw_Zh8CDv-fNVmw`
 #### Example Response:
 Body:
-{
+`{
     "Last Closings": [
         {
             "close": 151.12,
@@ -102,7 +102,7 @@ Body:
         "open": 148.535,
         "variation": 2.02
     }
-}
+}`
 #### Notes:
 Remember to take note about those three variables (apikey, userId, token), before testing this endpoint. Note that the "symbol" is allocated in the query string, because I believe that makes the URI more readable, and let the header data for security purposes only.
 
@@ -113,7 +113,7 @@ I didn't invest to much time with the access rules for this database in search o
 GET http://localhost:5000/log?userId=cTfPMH45wIYJqLLZpMtxNUliFmX2
 #### Example Response:
 Body:
-{
+`{
     "-MhH4GEkyjrYm4PKhkm2": {
         "email": "new5@new5.com",
         "endpoint": "/smi",
@@ -135,7 +135,7 @@ Body:
         "symbol": "AAPL",
         "timestamp": 1629169731570
     }
-}
+}`
 #### Notes:
 As you can see is just a simple log information that could be improved, saving the information getted at the request time, for example.
 
@@ -154,12 +154,12 @@ In order to achive this issue I've used Flask-Limiter package, and find it very 
 ## Error Handling
 This is the weakest point of the application because I've focused in developing a fully functional application first, as I always do. But you can see that in each response, I've leaved a subcode for redacting the proper messages in future releases. For example:
 Body:
-{
+`{
     "action": "/login",
     "message": "The request method is not supported by the server and cannot be handled.",
     "status": 501,
     "sub_code": 3
-}
+}`
 Look at the variable "sub_code" when testing the application, and you will notice that is not always the same for different errors. This was just a matter of time.
 
 ## Data Validation
@@ -185,3 +185,4 @@ I know that is not even close to a beta release, there are a lot of things to im
 
 Thanks for the opportunity you have gave me. I've felt really committed with the task.
 Any suggestions are welcome.
+

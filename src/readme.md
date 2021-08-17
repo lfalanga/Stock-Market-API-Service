@@ -34,7 +34,7 @@ Body:
 }
 #### Notes:
 You get necessary information for doing requests at "/smi" (see below).
-The three main variables needed are "userId", "apikey" and "token". The "apikey" variable renews itself every time you log in into the application for security reasons. Keep this in mind when testing the application because token expires too after on hour.
+The three main variables needed are "userId", "apikey" and "token". The "apikey" variable renews itself every time you log in into the application for security reasons. Keep this in mind when testing the application because token expires too after one hour.
 The posted JSON object should be included in the body of the request as JSON format.
 
 ### @myapi.post("/signup")
@@ -104,7 +104,7 @@ Body:
     }
 }
 #### Notes:
-Remember to take note about those three variables (apikey, userId, token), before testing this endpoint. Note that the "symbol" is allocated in the query string, because I believe that makes the URI more readeble, and let the header data for security purposes only.
+Remember to take note about those three variables (apikey, userId, token), before testing this endpoint. Note that the "symbol" is allocated in the query string, because I believe that makes the URI more readable, and let the header data for security purposes only.
 
 ### @myapi.post("/log")
 Since the alpha tester don't have access to the Firebase Real Time Database, I've created another endpoint for consulting log entries. As you can see below is a simple GET request giving the tester the possibility of reading the saved data after each user request.
@@ -139,26 +139,33 @@ Body:
 #### Notes:
 As you can see is just a simple log information that could be improved, saving the information getted at the request time, for example.
 
-### API Throttling
+## auth.py
+This file was created to autheticate users against Firebase, but also push and get data from the Real Time Database. I believe that it could change its name to firebase_integration.py or something like that.
+
+## avapi.py
+This file has the Alpha Vantage integration. There are a few lines of code. It was created with the purpose of maintaining a solid and readable file structure.
+
+## fernet.py
+This file is in charge of generating the environment variable needed for cryptography.
+
+## API Throttling
 In order to achive this issue I've used Flask-Limiter package, and find it very simple to implement because of the use of decorators for each endpoint. I've leaved a global configuration commented for future modifications.
 
-### Error Handling
+## Error Handling
 This is the weakest point of the application because I've focused in developing a fully functional application first, as I always do. But you can see that in each response, I've leaved a subcode for redacting the proper messages in future releases. For example:
 Body:
 {
     "action": "/login",
     "message": "The request method is not supported by the server and cannot be handled.",
     "status": 501,
-    "sub_code": 6
+    "sub_code": 3
 }
-Look at the variable sub_code when testing the application, and you will notice that is not always the same for different errors. This was just a matter of time.
+Look at the variable "sub_code" when testing the application, and you will notice that is not always the same for different errors. This was just a matter of time.
 
-### Data Validation
+## Data Validation
 Another weak point of the application. I didn't have enough time for redacting the database rules (at Firebase) in order to do a proper data validation. This is the preferred way to do it as I'm concerned. Of course you can add Python validations, but this is a additional security functionality in addition to Real Time Database rules, that works perfectly.
 
-### Comming soon
-Implement the proper responses for all these test cases:
-
+## Comming soon
 1. User already exists in the datase.
   You can't sign up the same user twice, but you don't get the proper message yet.
 2. Password is too weak. 
@@ -167,14 +174,14 @@ Implement the proper responses for all these test cases:
   For example now you can save an empty name or last name.
 5. Incorrect password during log in.
   You can't log in into the application with an incorrect password, but you don't get the proper message either.
-6. Redact proper messages for each error sub_code.
-7. Add a timestamp field for the user's data.
+6. Redact proper messages for each error (sub_code).
+7. Add a timestamp field for the user's document.
 8. Rename some files for better fuctionality understanding.
 9. Improving never ends, but these are the primary points I've noticed during development.
 
-### Conclusion
-It was a really challeging project because I have the opportunity to mix many technologies I've learned recently, and also have to invest some time to achieve issues I've never faced.
-I know that is not a complete application, there are a lot of things to improve. I've tried to maintain the code clean. Sometimes I've had to search for another way of solving the same issue too.
+## Conclusion
+It was a really challeging project because I have the opportunity for mixing many technologies I've learned recently, and also have to invest some time to achieve issues I've never faced.
+I know that is not even close to a beta release, there are a lot of things to improve. I've tried to maintain the code clean. Sometimes I've had to search for another way of solving the same issue too.
+
 Thanks for the opportunity you have gave me. I've felt really committed with the task.
 Any suggestions are welcome.
-

@@ -2,7 +2,7 @@
 A simple Flask REST API implementation with Alpha Vantage Service web service integration.
 For Authentication purposes and also, users and logging information, I have used Firebase service.
 
-In order to maintain the repository clean, I've deleted unnecessary files from the project. Inside the file requirements.txt you can find all necessary packages you need too install for running the application.
+In order to maintain the repository clean, I've deleted unnecessary files from the project. Inside the file requirements.txt you can find all necessary packages you need to install for running the application.
 
 Inside the folder "src" you will find the 4 main files needed for running the API server.
 
